@@ -27,16 +27,21 @@ class TestController extends AbstractController
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
   $data=curl_exec($ch);
 
-  if (curl_error($ch)) {
-      var_dump();
-  }
   curl_close($ch);
 
-  print("<pre>".print_r(json_decode($data),true)."</pre>");
+$decodedData = json_decode($data,true);
+
+
+//test url article 0
+$article_url = $decodedData['articles'][0]['url'];
+var_dump($article_url);
+
+//test pretty print array
+//print("<pre>".print_r($decodedData,true)."</pre>");
 
         return $this->render('test/index.html.twig', [
             'controller_name' => 'TestController',
-            'data' => $data,
+
         ]);
     }
 }
