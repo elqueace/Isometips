@@ -13,25 +13,27 @@ class TestController extends AbstractController
     public function index()
     {
 
+
+      $requestUrl= "https://api.ozae.com/gnw/articles?key=11116dbf000000000000960d2228e999&edition=en-us-ny&hours=6&options[newsonfire]=1&order[col]=social_score&order[srt]=DESC";
+      //$requestUrl= "https://jsonplaceholder.typicode.com/todos/1";
       $ch = curl_init();
 
-//Set the URL that you want to GET by using the CURLOPT_URL option.
-curl_setopt($ch, CURLOPT_URL, 'https://api.ozae.com/gnw/articles?key=11116dbf000000000000960d2228e999&edition=en-us-ny&hours=6&options[newsonfire]=1&order[col]=social_score&order[srt]=DESC');
+  curl_setopt($ch,CURLOPT_URL, $requestUrl);
+  curl_setopt($ch, CURLOPT_HEADER, 0);
+  curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+  curl_setopt($ch,CURLOPT_HEADER, false);
+  curl_setopt ($ch, CURLOPT_SSL_VERIFYHOST, false);
+  curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+  $data=curl_exec($ch);
 
-//Set CURLOPT_RETURNTRANSFER so that the content is returned as a variable.
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  if (curl_error($ch)) {
+      var_dump();
+  }
+  curl_close($ch);
 
-//Set CURLOPT_FOLLOWLOCATION to true to follow redirects.
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+  print("<pre>".print_r(json_decode($data),true)."</pre>");
 
-//Execute the request.
-$data = curl_exec($ch);
-
-//Close the cURL handle.
-curl_close($ch);
-
-//Print the data out onto the page.
-echo $data;
         return $this->render('test/index.html.twig', [
             'controller_name' => 'TestController',
             'data' => $data,
