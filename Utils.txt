@@ -1,0 +1,15 @@
+get an article:
+
+get an article by theme:
+
+textual search:
+      $requestUrl= "https://api.ozae.com/gnw/articles?key=11116dbf000000000000960d2228e999&hard_length=500&date=20180701__20180702&edition=en-us-ny&query=trump";
+
+
+get an article by date:
+
+      $requestUrl= "https://api.ozae.com/gnw/articles?key=11116dbf000000000000960d2228e999&hard_limit=50&date=20180701__20180702&edition=en-us-ny&topic=b&order[col]=social_score";
+
+les articles  affichant "{domaine}" in business category:
+
+      $requestUrl= "https://api.ozae.com/gnw/ngrams?domain=washingtonpost.fr&date=20190103__20190109&length=500&key=11116dbf000000000000960d2228e999";

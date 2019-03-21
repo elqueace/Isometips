@@ -11,4 +11,15 @@ require('../css/app.css');
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 // const $ = require('jquery');
 
-console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+import React from 'react';
+import ReactDOM from 'react-dom';
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <p>Hello</p>
+      </div>
+    )
+  }
+}
+ReactDOM.render(<App/>, document.getElementById('root'));

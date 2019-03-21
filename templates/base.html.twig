@@ -4,10 +4,62 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
+
+        <!-- Material Design Bootstrap -->
+        <link href="{{asset('css/mdb.min.css')}}" rel="stylesheet">
+        <!-- Styles congratulations -->
+        <link href="{{asset('css/congratulations.css')}}" rel="stylesheet">
+        <!-- Font  -->
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower|ZCOOL+KuaiLe|Freckle+Face" rel="stylesheet">
+        <!-- animation -->
+        <link href="{{asset('css/animation.css')}}" rel="stylesheet">
+       <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+        <!-- Bootstrap core CSS -->
+        <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <link href="{{asset('css/mdb.min.css')}}" rel="stylesheet">
+
+        <!-- JQuery -->
+    <script type="text/javascript" src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
+        <style>
+            .div {
+            position: absolute;
+            z-index: 9;
+            }
+            .mydivheader {
+            cursor: move;
+            z-index: 10;
+            }
+            .main-card {
+            height: 450px;
+            }
+
+        </style>
     </head>
-    <body>
-        {% block body %}
-      {% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+
+        <body  >
+
+            <!--Main Navigation-->
+            {% block body %}{% endblock %}
+            {% block javascripts %}{% endblock %}
+        <!--Main Navigation-->
+
+
+
+      </body>
+
+
+
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="{{asset('js/popper.min.js')}}"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="{{asset('js/mdb.min.js')}}"></script>
+
+<script type="text/javascript">
+            // Animations initialization
+            new WOW().init();
+        </script>
 </html>
