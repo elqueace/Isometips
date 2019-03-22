@@ -64,8 +64,8 @@ class TestController extends AbstractController
       $FloreArray = [];
       $NocifArray = [];
       $EcosystemeArray = [];
-      $NocifArray = [];
       $DangerArray = [];
+
       $apiCalls = [
         "Paris" => "https://api.ozae.com/gnw/articles?date=20180601__20180630&key=11116dbf000000000000960d2228e999&edition=fr-fr&query=paris&hard_length=500",
         "Pollution" => "https://api.ozae.com/gnw/articles?date=20180601__20180630&key=11116dbf000000000000960d2228e999&edition=fr-fr&query=pollution&hard_length=500",
@@ -124,6 +124,7 @@ switch($word)
       $this->storeArticles($article, $art, $entityManager);
     }
     $ParisArray = $articles;
+    var_dump($ParisArray);
 
     break;
 
@@ -145,7 +146,7 @@ switch($word)
         $article = new Atmosphere();
         $this->storeArticles($article, $art, $entityManager);
       }
-      //$AtmosphereArray = $articles;
+      $AtmosphereArray = $articles;
 
       break;
 
@@ -156,7 +157,7 @@ switch($word)
           $article = new Ecologie();
           $this->storeArticles($article, $art, $entityManager);
         }
-        //$EcologieArray = $articles;
+        $EcologieArray = $articles;
 
         break;
 
@@ -178,7 +179,7 @@ switch($word)
               $article = new Protection();
               $this->storeArticles($article, $art, $entityManager);
             }
-            //$ProtectionArray = $articles;
+            $ProtectionArray = $articles;
 
             break;
 
@@ -189,7 +190,7 @@ switch($word)
                 $article = new Faune();
                 $this->storeArticles($article, $art, $entityManager);
               }
-            //  $FauneArray = $articles;
+              $FauneArray = $articles;
 
               break;
 
@@ -200,7 +201,7 @@ switch($word)
                   $article = new Flore();
                   $this->storeArticles($article, $art, $entityManager);
                 }
-                //$FloreArray = $articles;
+                $FloreArray = $articles;
 
                 break;
 
@@ -211,7 +212,7 @@ switch($word)
                     $article = new Nocif();
                     $this->storeArticles($article, $art, $entityManager);
                   }
-                  //$NocifArray = $articles;
+                  $NocifArray = $articles;
 
                   break;
 
@@ -222,6 +223,8 @@ switch($word)
                       $article = new Ecosysteme();
                       $this->storeArticles($article, $art, $entityManager);
                     }
+                    $EcosystemeArray = $articles;
+
                     break;
 
                     case "Toxique":
@@ -231,6 +234,8 @@ switch($word)
                         $article = new Toxique();
                         $this->storeArticles($article, $art, $entityManager);
                       }
+                      $ToxiqueArray = $articles;
+
                       break;
 
                       case "Danger":
@@ -240,7 +245,7 @@ switch($word)
                           $article = new Danger();
                           $this->storeArticles($article, $art, $entityManager);
                         }
-                        //$DangerArray = $articles;
+                        $DangerArray = $articles;
                         break;
 
   }
@@ -254,35 +259,177 @@ switch($word)
 //on check que les articles pour le mot courant match avec ceux concernant Paris
 foreach ($ParisArray as $valueParis)
 {
-
-  foreach ($NatureArray as $valueTested)
+  //check si larticle contient le mot X
+  foreach ($PollutionArray as $valueTested)
   {
-    print"<br>";
+    //  print"<br>";
     //si ca match
     if($valueTested['id'] == $valueParis['id'])
     {
       $matchCounter++;
-      print "<br>valuetested = ".$valueTested['id']." -- valueParis = ".$valueParis['id'];
+      print "<br>PollutionArrayvaluetested = ".$valueTested['id']." -- valueParis = ".$valueParis['id'];
 
-    }else{
-      print "no match";
+    }
+  }
+
+  //check si larticle contient le mot X
+  foreach ($ToxiqueArray as $valueTested)
+  {
+    //  print"<br>";
+    //si ca match
+    if($valueTested['id'] == $valueParis['id'])
+    {
+      $matchCounter++;
+      print "<br>ToxiqueArrayvaluetested = ".$valueTested['id']." -- valueParis = ".$valueParis['id'];
+
+    }
+  }
+
+  //check si larticle contient le mot X
+  foreach ($AtmosphereArray as $valueTested)
+  {
+    //  print"<br>";
+    //si ca match
+    if($valueTested['id'] == $valueParis['id'])
+    {
+      $matchCounter++;
+      print "<br>AtmosphereArrayvaluetested = ".$valueTested['id']." -- valueParis = ".$valueParis['id'];
+
+    }
+  }
+
+  //check si larticle contient le mot X
+  foreach ($EcologieArray as $valueTested)
+  {
+    //  print"<br>";
+    //si ca match
+    if($valueTested['id'] == $valueParis['id'])
+    {
+      $matchCounter++;
+      print "<br>EcologieArrayvaluetested = ".$valueTested['id']." -- valueParis = ".$valueParis['id'];
+
+    }
+  }
+
+  //check si larticle contient le mot X
+  foreach ($NatureArray as $valueTested)
+  {
+    //  print"<br>";
+    //si ca match
+    if($valueTested['id'] == $valueParis['id'])
+    {
+      $matchCounter++;
+      print "<br>NatureArrayvaluetested = ".$valueTested['id']." -- valueParis = ".$valueParis['id'];
+
+    }
+  }
+
+  //check si larticle contient le mot X
+  foreach ($ProtectionArray as $valueTested)
+  {
+    //  print"<br>";
+    //si ca match
+    if($valueTested['id'] == $valueParis['id'])
+    {
+      $matchCounter++;
+      print "<br>ProtectionArrayvaluetested = ".$valueTested['id']." -- valueParis = ".$valueParis['id'];
+
+    }
+  }
+
+  //check si larticle contient le mot X
+  foreach ($FauneArray as $valueTested)
+  {
+    //  print"<br>";
+    //si ca match
+    if($valueTested['id'] == $valueParis['id'])
+    {
+      $matchCounter++;
+      print "<br>FauneArrayvaluetested = ".$valueTested['id']." -- valueParis = ".$valueParis['id'];
+
+    }
+  }
+
+  //check si larticle contient le mot X
+  foreach ($FloreArray as $valueTested)
+  {
+    //  print"<br>";
+    //si ca match
+    if($valueTested['id'] == $valueParis['id'])
+    {
+      $matchCounter++;
+      print "<br>FloreArraytested = ".$valueTested['id']." -- valueParis = ".$valueParis['id'];
+
+    }
+  }
+
+  //check si larticle contient le mot X
+  foreach ($NocifArray as $valueTested)
+  {
+    //  print"<br>";
+    //si ca match
+    if($valueTested['id'] == $valueParis['id'])
+    {
+      $matchCounter++;
+      print "<br>NocifArrayvaluetested = ".$valueTested['id']." -- valueParis = ".$valueParis['id'];
+
+    }
+  }
+
+  //check si larticle contient le mot X
+  foreach ($EcosystemeArray as $valueTested)
+  {
+    //  print"<br>";
+    //si ca match
+    if($valueTested['id'] == $valueParis['id'])
+    {
+      $matchCounter++;
+      print "<br>EcosystemeArrayvaluetested = ".$valueTested['id']." -- valueParis = ".$valueParis['id'];
+
+    }
+  }
+
+  //check si larticle contient le mot X
+  foreach ($DangerArray as $valueTested)
+  {
+    //  print"<br>";
+    //si ca match
+    if($valueTested['id'] == $valueParis['id'])
+    {
+      $matchCounter++;
+      print "<br>DangerArrayvaluetested = ".$valueTested['id']." -- valueParis = ".$valueParis['id'];
+
     }
   }
 
   //si on a assez de match (nb de match > N)
-  if($matchCounter > 0)
+  switch($matchCounter)
   {
-    //on insere l'article dans l array $environnementArticles
-    array_push($environnementArticles,$valueParis);
-    $matchCounter=0;
+    case 1: array_push($match1,$valueParis);break;
+
+    case 2: array_push($match2,$valueParis);break;
+
+    case 3: array_push($match3,$valueParis);break;
+
+    case 4: array_push($match4,$valueParis);break;
+
+    case 5: array_push($match5,$valueParis);break;
   }
+  $matchCounter=0;
 }
+
+print("<pre>".print_r($match1,true)."</pre><br><br>");
+print("<pre>".print_r($match2,true)."</pre><br><br>");
+print("<pre>".print_r($match3,true)."</pre><br><br>");
+print("<pre>".print_r($match4,true)."</pre><br><br>");
+array_multisort(array_column($match1, 'social_score'), SORT_DESC, $match1);
+print("<pre>".print_r($match1,true)."</pre><br><br>");
 
 
 //var_dump($environnementArticles);
 //print("<pre>".print_r($ParisArray,true)."</pre><br><br>");
 //print("<pre>".print_r($PollutionArray,true)."</pre><br><br>");
-print("<pre>".print_r($environnementArticles,true)."</pre><br><br>");
+//print("<pre>".print_r($environnementArticles,true)."</pre><br><br>");
 
 
 ///////////////////////////////////////Get the pot articles/////////////////////////////////////
