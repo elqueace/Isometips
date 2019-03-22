@@ -141,9 +141,9 @@ class CustomizedSelects extends React.Component {
               onChange={this.handlePopularityChange}
               id="radiogroup"
             >
-              <FormControlLabel value="10000" control={<Radio />} label="Les plus populaires" />
+              <FormControlLabel value="1" control={<Radio />} label="Les plus populaires" />
               <FormControlLabel value="1" control={<Radio />} label="je suis un peu indécis" />
-              <FormControlLabel value="20000" control={<Radio />} label="Je veux la perle rare" />
+              <FormControlLabel value="1" control={<Radio />} label="Je veux la perle rare" />
 
             </RadioGroup>
           </div>

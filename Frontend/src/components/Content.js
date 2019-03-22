@@ -4,6 +4,9 @@ import Select from './Select';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import history from '../history';
+import Chat from './Chat';
+import MessengerCustomerChat from 'react-messenger-customer-chat';
+
 
 export default class Content extends React.Component {
 
@@ -11,7 +14,7 @@ export default class Content extends React.Component {
     searchQuery: '',
     theme: '',
     date: '',
-    popularity: 0
+    popularity: 1
   };
 
   handleChange = event => {
@@ -44,9 +47,9 @@ export default class Content extends React.Component {
         const lieu = ev.target.parentNode.parentNode.id;
         let theme;
 
-        if(lieu === 'Tour_eifel' || lieu === 'Arc') {
+        if(lieu === 'Tour_eifel' || lieu === 'Arc' || lieu === 'Tour' || lieu === 'Voiture') {
           theme = 'e';
-        } else if(lieu === 'PetitBatiment' || lieu === 'GrandBatiment_1_' || lieu === 'GrandBatiment') {
+        } else if(lieu === 'PetitBatiment' || lieu === 'GrandBatiment_1_' || lieu === 'GrandBatiment' || lieu === 'GrandBatiment_2_' || lieu === 'GrandBatiment_3_') {
           theme = 'b';
         } else if(lieu === 'Arbre_2_' || lieu === 'Arbre_3_' || lieu === 'Arbre_4_') {
           theme = 'm';
@@ -56,7 +59,7 @@ export default class Content extends React.Component {
           searchQuery: 'Paris',
           date: '20190321',
           theme: theme,
-          popularity: 0
+          popularity: 1
         }, () => {
           history.push(`/resultats/query=${this.state.searchQuery}&date=${this.state.date}&theme=${this.state.theme}&popularity=${this.state.popularity}`);
           history.go();
@@ -95,9 +98,14 @@ export default class Content extends React.Component {
         </header>
 
         <Select afterChange={this.onSelectChange} />
-
+        
         <section>
-          <SvgImage />
+        <p id="text">
+          Survolez la ville
+        </p>
+          <SvgImage 
+            id="svg1"
+          />
         </section>
 
         <section>
@@ -113,8 +121,27 @@ export default class Content extends React.Component {
           <div className="btn right">
             <FontAwesomeIcon icon="chevron-right"/>
           </div>
+
+          <div>
+    
+  </div>
+
         </section>
+        <Link id="go"
+              to={
+                `/chatbot`
+              }>
+              BOT
+            </Link>
+        
+          <MessengerCustomerChat
+      pageId="EAAgMYVUnyKcBANs4rvS3eiKOHEFUVfjz7xTaDEjdmhwejn6NeCUxHrXogcNnW7aMyvjpWat4gc9UX1iXO0veF1kcg3NScZCMMJ3iz9PZCHK4zy3e0wncKNtQ3cZBZAeA2MdnA1vuUZCjK3m7Icaz71ZBR0ZAZCszJNA4WQL9nl4wDAZDZD"
+      appId="2265411993716903"
+    />
+
+        
       </div>
+
     );
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import ChatBot from 'react-simple-chatbot';
+import { Link } from 'react-router-dom';
 
 // all available props
 const theme = {
@@ -65,7 +66,10 @@ const ThemedExample = () => (
   <ThemeProvider theme={theme}>
     <ChatBot steps={steps} />
   </ThemeProvider>
+   
 );
   
+
+    
 export default ThemedExample;
   

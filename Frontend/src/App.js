@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { AnimatedRoute } from 'react-router-transition';
 import Home from './components/Home';
+import Chat from './components/Chat';
 import Resultats from './components/Resultats';
 import history from './history';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -26,6 +27,18 @@ const App = () => (
     <AnimatedRoute
       path="/resultats/:options"
       component={Resultats}
+      atEnter={{ offset: -100 }}
+      atLeave={{ offset: -100 }}
+      atActive={{ offset: 0 }}
+      mapStyles={(styles) => ({
+        transform: `translateX(${styles.offset}%)`,
+      })}
+    />
+
+    <AnimatedRoute
+      path="/chatbot"
+      component={Chat}
+      exact
       atEnter={{ offset: -100 }}
       atLeave={{ offset: -100 }}
       atActive={{ offset: 0 }}
